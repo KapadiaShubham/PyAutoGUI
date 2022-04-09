@@ -61,8 +61,9 @@ def openAnyTeams(what):
     paste()
     pg.press("enter")
     logo = pg.locateCenterOnScreen('./logo/teamsSearch.png')
-    if(logo==None):
+    while(logo==None):
         sleep(1)
+        logo = pg.locateCenterOnScreen('./logo/teamsSearch.png')
         
     pg.moveTo(443,49)
     pg.click()
@@ -76,7 +77,7 @@ def openAnyTeams(what):
     sleep(2)
     pg.moveTo(774,662) # Meet link
     pg.click()
-    sleep(1)
+    sleep(2)
     pg.moveTo(1307,105) # Join
     pg.click()
     sleep(1)
@@ -156,11 +157,12 @@ def openSheet(which):
     pg.hotkey("option", "command", "left")
 
 def openAnyChrome(which):
+    Spotlight('chr')
     which = 'chr'+which
     allchr = ['chrIITKGP','chrShubham']
-    Spotlight('chr')
-    pg.click(225, 87)
+    sleep(2)
     pg.hotkey("option","command", "f")
+    pg.click(225, 87)
     def gotoLogo(logo):
         x,y = logo
         print(x/2,y/2)
