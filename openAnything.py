@@ -4,5 +4,6 @@ from MorningProgram import *
 
 from time import sleep
 
-# openAny('Morning Program')
-# openAnyTeams('Living Meaningful (2022)')
+open('MMC Attendance & Schedule')
+# openAnyTeams('Morning Program')
+openAnyTeams('Living Meaningful (2022)')
