@@ -4,6 +4,11 @@ from MorningProgram import *
 
 from time import sleep
 
-open('MMC Attendance & Schedule')
 # openAnyTeams('Morning Program')
-openAnyTeams('Living Meaningful (2022)')
+# openAnyChrome('Shubham')
+
+# openSheet('MMC Attendance & Schedule')
+# openAnyTeams('Living Meaningful (2022)')
+# openAnyChrome('IITKGP')
+
+# Spotlight('chr')
