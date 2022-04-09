@@ -4,6 +4,7 @@ import pyautogui as pg
 # whatYouCanOpen = ["teams", "NYSteams", "chrShubham", "chrLML","yt", "mmc"]
 from time import sleep
 # open -a "Microsoft Teams"     # COPY THIS
+
 def copyCmd():    
     pg.click(777,437)
     pg.hotkey("command", "up")
@@ -55,6 +56,11 @@ pg.click(449,186)
 sleep(3)
 pg.click(760,881)
 pg.hotkey("option", "command", "left")
+sleep(0.5)
+pg.click(500,500)
+pg.keyDown("command")
+pg.press("c")
+pg.keyUp("command")
 
 sleep(0.5)
 pg.moveTo(0,83)
@@ -69,10 +75,15 @@ pg.press("enter")
 sleep(10)
 pg.moveTo(443,49)
 pg.click()
+pg.typewrite('living li (2022)')
+sleep(1.5)
+pg.moveTo(473,165)
+pg.click()
+
+
 
 # pg.hotkey("command", "space")
 # sleep(2)
-# pg.typewrite('Terminal')
 # pg.typewrite(["enter"])
 # sleep(2)
 
