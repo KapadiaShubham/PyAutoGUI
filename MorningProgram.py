@@ -136,6 +136,7 @@ def Spotlight(what):
         pg.press("space")
         pg.keyUp("command")
         sleep(0.3)
+        pg.moveTo(200,200)
         pg.typewrite(what)
         sleep(0.5)
         pg.typewrite(["enter"])
@@ -245,3 +246,73 @@ def mmcAttendance():
     
     # 537, 662
     # 621, 740
+def playMusic(number):
+    logo = pg.locateCenterOnScreen(f'./logo/playMusic.png', grayscale=True)
+    gotoLogo(logo)
+    pg.click()
+    sleep(0.3)
+    logo = pg.locateCenterOnScreen(f'./logo/nextMusic.png', grayscale=True)
+    gotoLogo(logo)
+    pg.click(clicks=number-1, interval=0.25)
+    
+    
+def repo(which):
+    sleep(1)
+    pg.click(250, 40)
+    sleep(0.3)
+    logo = pg.locateCenterOnScreen(f'./logo/dropdownRepos.png', grayscale=True) 
+    if(logo):
+        gotoLogo(logo)
+        pg.click()
+    
+    logo = pg.locateCenterOnScreen(f'./logo/{which}1.png', grayscale=True) 
+    if(logo):
+        gotoLogo(logo)
+    else:
+        logo = logo = pg.locateCenterOnScreen(f'./logo/{which}2.png', grayscale=True) 
+        gotoLogo(logo)
+    pg.click()
+    sleep(1)
+    pg.keyDown('command')
+    pg.keyDown('shift')
+    pg.press('a')
+    pg.keyUp('shift')
+    pg.keyUp('command')
+    # hotkey("shift","command","a")
+    
+def SpotlightMultiple(*argv):
+    for arg in argv:
+        Spotlight(arg)
+
+def chrNewTab(link):
+    pg.hotkey("command", "t")
+    pyperclip.copy(link)
+    paste()
+    pg.press("enter")
+
+def spectackleDisUnable():
+    logo = pg.locateCenterOnScreen(f'./logo/spectackle.png', grayscale=True) 
+    if(logo):
+        gotoLogo(logo)
+        pg.click()
+        x,y = logo
+        x/=2
+        y/=2
+        pg.moveTo(x,y+85)
+        sleep(0.5)
+        pg.moveTo(x+220,y+85)
+        pg.click()
+        sleep(0.2)
+
+def fillSadhanaCard():
+    openAnyChrome('Shubham')
+    sleep(1)
+    chrNewTab('https://docs.google.com/spreadsheets/d/1E-PXwdOztF2fu6tiU-k8QXbSkhJMZ9fJQoQmMPRknek/edit#gid=308003546')
+    
+
+def mailSadhanaCard():
+    fillSadhanaCard()
+    chrNewTab('https://mail.google.com/mail/u/0/#inbox')
+    sleep(1)
+    spectackleDisUnable()
+    

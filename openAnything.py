@@ -9,9 +9,9 @@ from time import sleep
 # openAnyChrome('Shubham')
 
 
-openSheet('MMC Attendance & Schedule')
-openAnyTeams('Living Meaningful Life (2022)')
-openAnyChrome('IITKGP')
+# openSheet('MMC Attendance & Schedule')
+# openAnyTeams('Living Meaningful Life (2022)')
+# openAnyChrome('IITKGP')
 
 # Spotlight('chr')
 
@@ -19,6 +19,25 @@ openAnyChrome('IITKGP')
 # openBrave('')
 
 # mmcAttendance()
+
+# Spotlight('Music')
+# playMusic(5)
+
+# Spotlight('Github Desktop')
+# repo('devconnector')
+# repo('PyAutoGUI')
+
+# SpotlightMultiple('Downloads', 'Whatsapp')
+
+# fillSadhanaCard()
+mailSadhanaCard()
+
+
+
+
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 import pyautogui as pg
 from functions import *
 
-pg.click(225, 87)
+# pg.click(250, 40)
 # pg.hotkey("option","command", "f")
 # logo[:] = [x / 2 for x in logo]
 # x,y = logo
@@ -13,8 +13,16 @@ def gotoLogo(logo):
     pg.moveTo(x/2,y/2)
     
     
-logo = pg.locateCenterOnScreen(f'./logo/downloadAttendance.png', grayscale=True) # a four-integer tuple of the left, top, width, and height of the region
-gotoLogo(logo)
-pg.click()
-sleep(1)
-pg.press("enter")
+logo = pg.locateCenterOnScreen(f'./logo/spectackle.png', grayscale=True) 
+if(logo):
+    gotoLogo(logo)
+    pg.click()
+    x,y = logo
+    x/=2
+    y/=2
+    pg.moveTo(x,y+85)
+    sleep(0.5)
+    pg.moveTo(x+220,y+85)
+    pg.click()
+    sleep(0.2)
+
