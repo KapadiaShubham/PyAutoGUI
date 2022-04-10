@@ -1,4 +1,5 @@
 # MAKE SURE FULL SCREEN
+from curses.ascii import SP
 import pyautogui as pg
 import pyperclip
 # from functions import *
@@ -6,6 +7,11 @@ import pyperclip
 from time import sleep
 # open -a "Microsoft Teams"     # COPY THIS
 
+def paste():
+        pg.keyDown("command")
+        pg.press("v")
+        pg.keyUp("command")
+        
 def openAnyTeams(what):
     # def optCmdF():
     #     pg.keyDown("option")
@@ -28,10 +34,7 @@ def openAnyTeams(what):
     #     pg.typewrite(["enter"])
     #     sleep(1.5)
 
-    def paste():
-        pg.keyDown("command")
-        pg.press("v")
-        pg.keyUp("command")
+    
     # print (pg.position())  # 0,57
     # Spotlight()
 
@@ -100,6 +103,30 @@ def openAnyTeams(what):
 
     # pg.typewrite('\"Microsoft Teams\"')
 
+def openAnyTeamsChat(what):
+    pg.moveTo(0,83)
+    sleep(0.5)
+    pg.click()
+    sleep(1)
+    pyperclip.copy('open -a \"Microsoft Teams\"')
+    paste()
+    pg.press("enter")
+    logo = pg.locateCenterOnScreen('./logo/teamsSearch.png')
+    pg.hotkey("option","command", "f")
+    while(logo==None):
+        sleep(1)
+        logo = pg.locateCenterOnScreen('./logo/teamsSearch.png')
+        
+    pg.moveTo(443,49)
+    pg.click()
+    sleep(0.5)
+    pyperclip.copy(what)
+    paste()
+
+    sleep(1.5)
+    pg.moveTo(473,165) # teams after search
+    pg.click()
+
 def Spotlight(what):
         pg.moveTo(0,57)
         sleep(0.5)
@@ -156,17 +183,19 @@ def openSheet(which):
     pg.click(760,881)
     pg.hotkey("option", "command", "left")
 
+def gotoLogo(logo):
+    x,y = logo
+    print(x/2,y/2)
+    pg.moveTo(x/2,y/2)
+        
 def openAnyChrome(which):
     Spotlight('chr')
     which = 'chr'+which
     allchr = ['chrIITKGP','chrShubham']
-    sleep(2)
+    sleep(5)
     pg.hotkey("option","command", "f")
     pg.click(225, 87)
-    def gotoLogo(logo):
-        x,y = logo
-        print(x/2,y/2)
-        pg.moveTo(x/2,y/2)
+    
         
     logo = pg.locateCenterOnScreen(f'./logo/{which}.png')
     if(logo==None):
@@ -182,3 +211,37 @@ def openAnyChrome(which):
     sleep(0.5)
     pg.click(113,50)
             
+def openBrave(link):
+    Spotlight('brave')
+    sleep(1)
+    pyperclip.copy(link)
+    pg.hotkey("option","command", "f")
+    pg.click(350, 83)
+    paste()
+    pg.press("enter")
+    
+def mmcAttendance():
+    Spotlight('NYS Microsoft Teams')
+    sleep(5)
+    pg.hotkey("option","command", "f")
+    pg.click(1422,872)
+    pg.click(486,311)
+    sleep(1)
+    logo = pg.locateCenterOnScreen(f'./logo/downloadAttendance.png', grayscale=True) # a four-integer tuple of the left, top, width, and height of the region
+    gotoLogo(logo)
+    pg.click()
+    sleep(1.5)
+    pg.typewrite(["enter"])
+    sleep(0.1)
+    pg.hotkey("option","command", "right")
+    sleep(0.1)
+    openAnyTeamsChat('MMC Attendance')
+    pg.hotkey("option","command", "left")
+    pg.moveTo(0,720)
+    sleep(0.3)
+    pg.moveTo(20,720)
+    pg.click()
+    # drag to 590, 840
+    
+    # 537, 662
+    # 621, 740
